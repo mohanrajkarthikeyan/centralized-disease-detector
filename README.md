@@ -23,6 +23,7 @@ The Admin Module is responsible for managing patient data and overseeing the dis
 In this module, patients or users visit the web application, log in, and input their symptoms into the system. Once the symptoms are entered, the system processes the information using its trained models and provides a prediction of the disease the user may have. In addition, it offers suggestions for specialists who can further help the patient.
 
 **Future Enhancements**
+
 The project has significant potential for future enhancements. One of the key areas for improvement is the integration of real-time data from wearable health devices, electronic medical records, and public health databases. These sources would provide more accurate, up-to-date information for disease detection. Additionally, the system could benefit from implementing deep learning and ensemble methods to improve the accuracy of predictions, especially for complex or rare diseases.
 
 **Conclusion**
