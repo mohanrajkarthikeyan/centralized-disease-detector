@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MEDICHECK</title>
+    <link rel="icon" type="image/x-icon" href="/img/1.png"/>
+    <meta property="og:title" content="Inexperienced Alienated Gerbil" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <div class="medi">
+    <img src="/img/2.png"- alt="icon" width="35" height="35">
+    <a href="#" class="logo">medicheck</a>
+    </div>
+  
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    
+    <style>
+      @keyframes fade-in-left {
+        0% {
+          opacity: 0;
+          transform: translateX(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    </style>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            /* Green background */
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 30px;
+            
+            background: rgb(53, 69, 43);
+            background: linear-gradient(90deg, rgba(53, 69, 43, 1) 0%, rgba(118, 131, 80, 1) 100%);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+          text-transform: uppercase;
+          color: #fff;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        
+
+        p {
+          color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .result {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #7e7474;
+        }
+
+        .chatgpt-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #5ac8fa;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatgpt-link:hover {
+            background-color: #007bff;
+        }
+
+        .symbol {
+            font-size: 1.8em;
+            margin-right: 10px;
+        }
+        .medi {
+    position: absolute;
+    top: -14px; /* Adjust this value to set the distance from the top */
+    left: 8px; /* Adjust this value to set the distance from the left */
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.logo {
+    font-size: 2em;
+    font-family: Cabin;
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
+    padding-inline: 4px;
+    letter-spacing: 2.5px;
+    color: inherit;
+    text-decoration: inherit;
+    
+}
+    </style>
+</head>
+<body>
+    
+
+            <div class="container">
+                <h1>Predicted Disease</h1>
+                <p>This is the solution page for the disease prediction application.</p>
+                <p>The predicted disease is: <span class="result">Diabetes</span></p>
+                <div id="recommendation">
+                    <h2>Select a Disease :</h2>
+        <select id="diseaseSelect" onchange="showRecommendation()">
+          <option value="">Select Disease</option>
+          <option value="Fungal Infection">Fungal Infection</option>
+          <option value="Allergy">Allergy</option>
+          <option value="GERD">GERD (Gastroesophageal Reflux Disease)</option>
+          <option value="Chronic Cholestasis">Chronic Cholestasis</option>
+          <option value="Drug Reaction">Drug Reaction</option>
+          <option value="Peptic Ulcer Disease">Peptic Ulcer Disease</option>
+          <option value="AIDS">AIDS</option>
+          <option value="Diabetes">Diabetes</option>
+          <option value="Gastroenteritis">Gastroenteritis</option>
+          <option value="Bronchial Asthma">Bronchial Asthma</option>
+          <option value="Hypertension">Hypertension</option>
+          <option value="Migraine">Migraine</option>
+          <option value="Cervical Spondylosis">Cervical Spondylosis</option>
+          <option value="Paralysis (brain hemorrhage)">Paralysis (brain hemorrhage)</option>
+          <option value="Jaundice">Jaundice</option>
+          <option value="Malaria">Malaria</option>
+          <option value="Chickenpox">Chickenpox</option>
+          <option value="Dengue">Dengue</option>
+          <option value="Typhoid">Typhoid</option>
+          <option value="Hepatitis A">Hepatitis A</option>
+          <option value="Hepatitis B">Hepatitis B</option>
+          <option value="Hepatitis C">Hepatitis C</option>
+          <option value="Hepatitis D">Hepatitis D</option>
+          <option value="Hepatitis E">Hepatitis E</option>
+          <option value="Alcoholic Hepatitis">Alcoholic Hepatitis</option>
+          <option value="Tuberculosis">Tuberculosis</option>
+          <option value="Common Cold">Common Cold</option>
+          <option value="Pneumonia">Pneumonia</option>
+          <option value="Dimorphic Hemorrhoids (Piles)">Dimorphic Hemorrhoids (Piles)</option>
+          <option value="Heart Attack">Heart Attack</option>
+          <option value="Varicose Veins">Varicose Veins</option>
+          <option value="Hypothyroidism">Hypothyroidism</option>
+          <option value="Hyperthyroidism">Hyperthyroidism</option>
+          <option value="Hypoglycemia">Hypoglycemia</option>
+          <option value="Osteoarthritis">Osteoarthritis</option>
+          <option value="Arthritis">Arthritis</option>
+          <option value="(Vertigo) Paroxysmal Positional Vertigo">(Vertigo) Paroxysmal Positional Vertigo</option>
+          <option value="Acne">Acne</option>
+          <option value="Urinary tract infection">Urinary tract infection</option>
+          <option value="Psoriasis">Psoriasis</option>
+          <option value="Impetigo">Impetigo</option>
+        </select>
+        
+        <div id="recommendation"></div>
+        
+        <script>
+        function showRecommendation() {
+          var select = document.getElementById("diseaseSelect");
+          var selectedDisease = select.options[select.selectedIndex].value;
+          var recommendationDiv = document.getElementById("recommendation");
+          var specialist = "";
+          var drugs = "";
+          var disease_details ="";
+         
+          switch(selectedDisease) {
+                        case "Fungal Infection":
+                            specialist = "Dermatologist";
+                            drugs = "Antifungal medications such as fluconazole or terbinafine.";
+                            disease_details = "Fungal infections are caused by fungi and can affect the skin, nails, or mucous membranes.";
+                            break;
+                        case "Allergy":
+                            specialist = "Allergist/Immunologist";
+                            drugs = "Antihistamines like loratadine or cetirizine, nasal corticosteroids, or epinephrine for severe allergic reactions.";
+                            disease_details = "Allergies occur when the immune system reacts to a foreign substance, causing symptoms like sneezing, itching, and congestion.";
+                            break;
+                        case "GERD":
+                            specialist = "Gastroenterologist";
+                            drugs = "Proton pump inhibitors (PPIs) like omeprazole or H2 blockers like ranitidine.";
+                            disease_details = "GERD (Gastroesophageal Reflux Disease) is a chronic condition where stomach acid flows back into the esophagus, causing symptoms like heartburn and acid reflux.";
+                            break;
+                        case "Chronic Cholestasis":
+                            specialist = "Hepatologist/Gastroenterologist";
+                            drugs = "Ursodeoxycholic acid, medications to relieve itching like cholestyramine.";
+                            disease_details = "Chronic cholestasis is a condition where bile flow from the liver is reduced or blocked, leading to symptoms like jaundice, itching, and pale stools.";
+                            break;
+                        case "Drug Reaction":
+                            specialist = "Allergist/Immunologist or Dermatologist";
+                            drugs = "Treatment depends on the type of reaction and may involve antihistamines, corticosteroids, or discontinuation of the offending medication.";
+                            disease_details = "Drug reactions can range from mild skin rashes to severe allergic reactions and can be caused by various medications.";
+                            break;
+                        case "Peptic Ulcer Disease":
+                            specialist = "Gastroenterologist";
+                            drugs = "Proton pump inhibitors (PPIs), antibiotics for H. pylori eradication if present, and antacids.";
+                            disease_details = "Peptic ulcer disease involves the formation of open sores (ulcers) in the lining of the stomach, small intestine, or esophagus, often due to infection with H. pylori bacteria or long-term use of NSAIDs.";
+                            break;
+                        case "AIDS":
+                            specialist = "Infectious Disease Specialist or Immunologist";
+                            drugs = "Antiretroviral therapy (ART) including combinations of nucleoside reverse transcriptase inhibitors (NRTIs), protease inhibitors (PIs), integrase inhibitors, or entry inhibitors.";
+                            disease_details = "Acquired immunodeficiency syndrome (AIDS) is caused by the human immunodeficiency virus (HIV), which attacks the immune system, leading to susceptibility to opportunistic infections and certain cancers.";
+                            break;
+                        case "Diabetes":
+                            specialist = "Endocrinologist";
+                            drugs = "Insulin, oral antidiabetic medications like metformin, sulfonylureas, or newer medications like SGLT2 inhibitors.";
+                            disease_details = "Diabetes is a chronic condition characterized by high blood sugar levels, resulting from either insufficient insulin production or the body's inability to use insulin effectively.";
+                            break;
+                        case "Gastroenteritis":
+                            specialist = "Gastroenterologist";
+                            drugs = "Treatment involves fluid replacement, electrolyte management, and in some cases, antibiotics for bacterial gastroenteritis.";
+                            disease_details = "Gastroenteritis, commonly known as stomach flu, is inflammation of the stomach and intestines, often caused by viral or bacterial infections and leading to symptoms like diarrhea, vomiting, and abdominal pain.";
+                            break;
+                        case "Bronchial Asthma":
+                            specialist = "Pulmonologist or Allergist/Immunologist";
+                            drugs = "Bronchodilators (e.g., albuterol), inhaled corticosteroids (e.g., fluticasone), leukotriene modifiers, or biologic therapies for severe asthma.";
+        disease_details = "Bronchial asthma is a chronic inflammatory disorder of the airways characterized by episodes of wheezing, shortness of breath, chest tightness, and coughing, often triggered by allergens, exercise, or irritants.";
+        break;
+        case "Hypertension":
+        specialist = "Cardiologist or Hypertension Specialist";
+        drugs = "Antihypertensive medications such as ACE inhibitors, beta-blockers, calcium channel blockers, or diuretics.";
+        disease_details = "Hypertension, or high blood pressure, is a common condition in which the force of blood against the artery walls is consistently too high, leading to increased risk of heart disease, stroke, and other complications.";
+        break;
+        case "Migraine":
+        specialist = "Neurologist";
+        drugs = "Triptans (e.g., sumatriptan), preventive medications like beta-blockers, antidepressants, or anti-seizure medications.";
+        disease_details = "Migraine is a neurological disorder characterized by recurrent moderate to severe headaches, often accompanied by nausea, vomiting, and sensitivity to light and sound.";
+        break;
+        case "Cervical Spondylosis":
+        specialist = "Orthopedic Surgeon or Neurologist";
+        drugs = "Nonsteroidal anti-inflammatory drugs (NSAIDs), muscle relaxants, physical therapy, or cervical collar.";
+        disease_details = "Cervical spondylosis, also known as neck arthritis or cervical osteoarthritis, is a degenerative condition of the cervical spine (neck) characterized by wear and tear of the spinal discs and joints, leading to neck pain, stiffness, and sometimes numbness or weakness in the arms or hands.";
+        break;
+        case "Paralysis (brain hemorrhage)":
+        specialist = "Neurologist or Rehabilitation Specialist";
+        drugs = "Treatment involves supportive care, physical therapy, occupational therapy, and medications to manage complications like spasticity or pain.";
+        disease_details = "Paralysis resulting from brain hemorrhage occurs when bleeding in the brain damages nerve cells, leading to loss of muscle function and sensation in parts of the body.";
+        break;
+        case "Jaundice":
+        specialist = "Gastroenterologist or Hepatologist";
+        drugs = "Treatment depends on the underlying cause, may involve addressing liver dysfunction, treating infections, or relieving bile duct obstruction.";
+        disease_details = "Jaundice is a yellow discoloration of the skin and eyes due to elevated levels of bilirubin in the blood, often indicating liver disease, bile duct obstruction, or hemolytic disorders.";
+        break;
+        case "Malaria":
+        specialist = "Infectious Disease Specialist";
+        drugs = "Antimalarial medications like chloroquine, artemisinin-based combination therapies, or others depending on the species and drug resistance.";
+        disease_details = "Malaria is a life-threatening mosquito-borne infectious disease caused by parasites of the Plasmodium genus, transmitted through the bite of infected Anopheles mosquitoes, leading to symptoms like fever, chills, and flu-like illness.";
+        break;
+        case "Chickenpox":
+        specialist = "Pediatrician or Infectious Disease Specialist";
+        drugs = "Antiviral medications like acyclovir, supportive care for symptoms including antihistamines, and analgesics.";
+        disease_details = "Chickenpox, caused by the varicella-zoster virus, is a highly contagious viral infection characterized by itchy red blisters on the skin, fever, and general discomfort.";
+        break;
+        case "Dengue":
+        specialist = "Infectious Disease Specialist or Hematologist";
+        drugs = "Treatment involves supportive care, fluid management, and close monitoring for complications. Avoiding medications like aspirin is crucial due to the risk of bleeding.";
+        disease_details = "Dengue fever is a mosquito-borne viral infection causing flu-like symptoms, including high fever, severe headache, joint and muscle pain, rash, and in severe cases, bleeding complications like dengue hemorrhagic fever or dengue shock syndrome.";
+        break;
+        case "Typhoid":
+        specialist = "Infectious Disease Specialist";
+        drugs = "Antibiotics such as fluoroquinolones or cephalosporins to treat the Salmonella typhi bacteria.";
+        disease_details = "Typhoid fever is a bacterial infection caused by Salmonella typhi bacteria, transmitted through contaminated food or water, leading to symptoms like prolonged fever, abdominal pain, and gastrointestinal disturbances.";
+        break;
+        case "Hepatitis A":
+        case "Hepatitis B":
+        case "Hepatitis C":
+        case "Hepatitis D":
+        case "Hepatitis E":
+        specialist = "Gastroenterologist or Hepatologist";
+        drugs = "Treatment varies depending on the type of hepatitis, may include antiviral medications, supportive care, and in some cases, vaccination for prevention.";
+        disease_details = "Hepatitis refers to inflammation of the liver and can be caused by viral infections (hepatitis A, B, C, D, E), alcohol, toxins, or autoimmune diseases, leading to symptoms like jaundice, fatigue, nausea, and abdominal pain.";
+        break;
+        case "Alcoholic Hepatitis":
+        specialist = "Gastroenterologist or Hepatologist";
+        drugs = "Treatment involves abstinence from alcohol, supportive care, corticosteroids in some cases, and addressing complications like malnutrition.";
+        disease_details = "Alcoholic hepatitis is liver inflammation caused by excessive alcohol consumption, leading to symptoms like jaundice, abdominal pain, and liver dysfunction, which can progress to cirrhosis or liver failure.";
+        break;
+        case "Tuberculosis":
+        specialist = "Infectious Disease Specialist or Pulmonologist";
+        drugs = "Antibiotics like isoniazid, rifampin, pyrazinamide, and ethambutol for active TB, along with a combination of drugs for several months.";
+        disease_details = "Tuberculosis (TB) is a bacterial infection caused by Mycobacterium tuberculosis, primarily affecting the lungs but can also involve other organs, leading to symptoms like cough, fever, weight loss, and night sweats.";
+        break;
+        case "Common Cold":
+        specialist = "Generally managed by Primary Care Physicians";
+        drugs = "Treatment focuses on symptomatic relief with rest, fluids, over-the-counter cold medications (e.g., decongestants, antihistamines), and pain relievers.";
+        disease_details = "The common cold is a viral infection of the upper respiratory tract caused by various viruses, typically characterized by symptoms like sore throat, runny or stuffy nose, coughing, sneezing, and mild fatigue.";
+        break;
+        case "Pneumonia":
+        specialist = "Pulmonologist or Infectious Disease Specialist";
+        drugs = "Antibiotics such as azithromycin, amoxicillin, or levofloxacin depending on the causative agent, along with supportive care.";
+        disease_details = "Pneumonia is an infection that inflames the air sacs in one or both lungs, typically caused by bacteria, viruses, or fungi. It leads to symptoms like cough, fever, chills, difficulty breathing, and chest pain.";
+        break;
+        case "Dimorphic Hemmorhoids(piles)":
+        specialist = "Gastroenterologist or Colorectal Surgeon";
+        drugs = "Fiber supplements, stool softeners, topical treatments like hydrocortisone cream, and in severe cases, surgical procedures such as hemorrhoidectomy.";
+        disease_details = "Hemorrhoids, commonly known as piles, are swollen veins in the lower rectum and anus, leading to symptoms like rectal bleeding, itching, pain, and discomfort during bowel movements.";
+        break;
+        case "Heart Attack":
+        specialist = "Cardiologist";
+        drugs = "Immediate treatment with aspirin, nitroglycerin, and clot-busting drugs like tissue plasminogen activator (tPA), along with medications for blood pressure, cholesterol, and preventing blood clots.";
+        disease_details = "A heart attack, or myocardial infarction, occurs when blood flow to a part of the heart muscle is blocked, leading to damage or death of heart tissue, typically due to atherosclerosis or blood clot formation in the coronary arteries.";
+        break;
+        case "Varicose Veins":
+        specialist = "Vascular Surgeon or Phlebologist";
+        drugs = "Compression stockings, lifestyle modifications, and in severe cases, procedures like sclerotherapy, laser therapy, or vein stripping.";
+        disease_details = "Varicose veins are enlarged, twisted veins, usually occurring in the legs, due to weakened vein walls and valves, leading to symptoms like visible bulging veins, leg pain, heaviness, and swelling.";
+        break;
+        case "Hypothyroidism":
+        specialist = "Endocrinologist";
+        drugs = "Synthetic thyroid hormone replacement medications like levothyroxine (T4), liothyronine (T3), or combination therapy.";
+        disease_details = "Hypothyroidism is a condition where the thyroid gland doesn't produce enough thyroid hormone, leading to symptoms like fatigue, weight gain, cold intolerance, dry skin, and constipation.";
+        break;
+        case "Hyperthyroidism":
+        specialist = "Endocrinologist";
+        drugs = "Antithyroid medications like methimazole or propylthiouracil, radioactive iodine therapy, or in severe cases, thyroidectomy (surgical removal of the thyroid gland).";
+        disease_details = "Hyperthyroidism is a condition where the thyroid gland produces too much thyroid hormone, leading to symptoms like weight loss, rapid heartbeat, sweating, nervousness, and heat intolerance.";
+        break;
+        case "Urinary Tract Infection":
+        specialist = "Urologist or Infectious Disease Specialist";
+        drugs = "Antibiotics like trimethoprim-sulfamethoxazole, ciprofloxacin, or nitrofurantoin, along with increased fluid intake.";
+        disease_details = "A urinary tract infection (UTI) is an infection in any part of the urinary system, including the kidneys, bladder, ureters, or urethra, leading to symptoms like frequent urination, burning sensation during urination, cloudy or bloody urine, and pelvic pain.";
+        break;
+        case "Psoriasis":
+        specialist = "Dermatologist";
+        drugs = "Topical corticosteroids, vitamin D analogs, retinoids, oral medications like methotrexate or biologic therapies, and light therapy (phototherapy).";
+        disease_details = "Psoriasis is a chronic autoimmune condition characterized by red, itchy, and scaly patches of skin, resulting from an accelerated skin cell growth cycle.";
+        break;
+        case "Impetigo":
+        specialist = "Dermatologist or Pediatrician";
+        drugs = "Topical antibiotics like mupirocin or oral antibiotics such as cephalexin or dicloxacillin for more severe cases.";
+        disease_details = "Impetigo is a highly contagious bacterial skin infection, common in children, characterized by red sores or blisters that rupture and develop a honey-colored crust.";
+        break;
+        case "Pneumothorax":
+        specialist = "Pulmonologist or Thoracic Surgeon";
+        drugs = "Treatment may involve observation, oxygen therapy, chest tube insertion to remove air from the pleural space, or surgical procedures to repair the lung.";
+        disease_details = "Pneumothorax, also known as a collapsed lung, occurs when air leaks into the space between the lung and the chest wall, leading to partial or complete lung collapse and symptoms like sudden chest pain and difficulty breathing.";
+        break;
+        case "Pyelonephritis":
+        specialist = "Urologist or Nephrologist";
+        drugs = "Antibiotics like ciprofloxacin, levofloxacin, or amoxicillin-clavulanate for uncomplicated cases, and intravenous antibiotics for severe infections.";
+        disease_details = "Pyelonephritis is a bacterial infection of the kidneys, usually resulting from an ascending urinary tract infection, leading to symptoms like fever, chills, flank pain, nausea, and vomiting.";
+        break;
+        default:
+        specialist = "Specialist not specified";
+        drugs = "Drug recommendation not specified";
+        disease_details = "Details not available";
+        }        recommendationDiv.innerHTML = "<h3>Specialist Recommendation:</h3><p>" + specialist + "</p><h3>Drug Recommendation:</h3><p>" + drugs + "</p><h3>Disease Details:</h3><p>" + disease_details + "</p>";
+         };
+        
+          recommendationDiv.innerHTML = "<h3>Specialist Recommendation:</h3><p>" + specialist + "</p><h3>Drug Recommendation:</h3><p>" + drugs + "</p>";
+        
+        </script>
+                    
+            </div>
+            
+        
+        </body>
+        </html>
+        
+        
+        
+        
+        
+        
+        

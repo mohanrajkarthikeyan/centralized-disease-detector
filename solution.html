@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution Page</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #a8e6cf; /* Green background */
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #5b6f9b;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .result {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #065964;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #7e7474;
+        }
+
+        .chatgpt-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #5ac8fa;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatgpt-link:hover {
+            background-color: #007bff;
+        }
+
+        .symbol {
+            font-size: 1.8em;
+            margin-right: 10px;
+        }
+
+        .main-page-button {
+            padding: 10px 20px;
+            background-color: #5ac8fa;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-page-button:hover {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.location.href='main.php'" class="main-page-button">Main Page</button>
+    <div class="container">
+        <h1><span class="symbol">⚕</span>Solution Page<span class="symbol">⚕</span></h1>
+        <p>This is the solution page for the disease prediction application.</p>
+        <p>The predicted disease is:{{ predicted_disease }} <span class="result"></span></p>
+        <a href="javascript:void(0);" class="chatgpt-link" onclick="redirectToChatGPT()">Find specialists and drugs for <span class="result">{{ predicted_disease }}</span> with ChatGPT</a>
+    </div>
+    <footer>Created by Your Name</footer>
+
+    <script>
+        function redirectToChatGPT() {
+            // Get the predicted disease from the page content
+            var predicted_disease = document.querySelector('.result').textContent;
+        
+            // Default search terms for specialists and drugs
+            var defaultSearchTerms = '-specialists and drugs suggestions';
+        
+            // Combine the disease name and default search terms
+            var searchQuery = predicted_disease + ' ' + defaultSearchTerms;
+        
+            // URL encode the search query
+            var encodedSearchQuery = encodeURIComponent(searchQuery);
+        
+            // Construct the URL for ChatGPT with the pre-filled search query
+            var chatGPTUrl = 'https://chat.openai.com/?q=' + encodedSearchQuery;
+        
+            // Redirect the user to ChatGPT with the pre-filled search query
+            window.location.href = chatGPTUrl;
+        }
+    </script>
+</body>
+</html>

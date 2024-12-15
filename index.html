@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDICHECK</title>
+    <link rel="icon" type="image/x-icon" href="img/1.png"/>
+    <div class="medi">
+        <img src="./img/2.png" href="#" alt="icon" width="35" height="35">
+                    <a href="#" class="logo">medicheck</a>
+        </div>
+    <style>
+        /* General styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            /* background: rgb(53, 69, 43);
+            background: linear-gradient(90deg, rgba(53, 69, 43, 1) 0%, rgba(118, 131, 80, 1) 100%); */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 90px auto;
+            /* background: #fff; */
+            padding: 20px;
+            background: rgb(53, 69, 43);
+            background: linear-gradient(90deg, rgba(53, 69, 43, 1) 0%, rgba(118, 131, 80, 1) 100%);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            color: #fff;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        input[type="submit"] {
+            border: 2px solid #fff;
+            font-family: 'Poppins', sans-serif;
+            background: rgb(53, 69, 43);
+            background: linear-gradient(90deg, rgba(53, 69, 43, 1) 0%, rgba(118, 131, 80, 1) 100%);
+            color: #fff;
+            
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(90deg, rgba(53, 69, 43, 1) 0%, rgba(118, 131, 80, 1) 100%);
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+        .medi {
+    position: absolute;
+    top: -14px; /* Adjust this value to set the distance from the top */
+    left: 8px; /* Adjust this value to set the distance from the left */
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.logo {
+    font-size: 2em;
+    font-family: Cabin;
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: uppercase;
+    padding-inline: 4px;
+    letter-spacing: 2.5px;
+    color: inherit;
+    text-decoration: inherit;
+    
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Symptoms</h1>
+        <form action="/predict.html" method="post" onsubmit="return validateForm()">
+            <label for="symptom1">Symptom 1:</label>
+            <select name="symptom1" id="symptom1"></select>
+            <label for="symptom2">Symptom 2:</label>
+            <select name="symptom2" id="symptom2"></select>
+            <label for="symptom3">Symptom 3:</label>
+            <select name="symptom3" id="symptom3"></select>
+            <label for="symptom4">Symptom 4:</label>
+            <select name="symptom4" id="symptom4"></select>
+            <label for="symptom5">Symptom 5:</label>
+            <select name="symptom5" id="symptom5"></select>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+
+    <script>
+        var symptoms = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing', 'shivering', 'chills', 'joint_pain', 'stomach_pain', 'acidity', 'ulcers_on_tongue', 'muscle_wasting', 'vomiting', 'burning_micturition'];
+
+        // Sort symptoms alphabetically
+        symptoms.sort();
+
+        // Function to populate dropdowns
+        function populateDropdowns() {
+            for (var i = 1; i <= 5; i++) {
+                var select = document.getElementById('symptom' + i);
+                // Add default "Select Symptom" option
+                var defaultOption = document.createElement('option');
+                defaultOption.text = 'Select Symptom';
+                defaultOption.value = '';
+                select.appendChild(defaultOption);
+                for (var j = 0; j < symptoms.length; j++) {
+                    var option = document.createElement('option');
+                    option.value = symptoms[j];
+                    option.text = symptoms[j];
+                    select.appendChild(option);
+                }
+            }
+        }
+
+        // Call the function to populate dropdowns
+        populateDropdowns();
+
+        // Function to validate form submission
+        function validateForm() {
+            var symptom1 = document.getElementById("symptom1").value;
+            var symptom2 = document.getElementById("symptom2").value;
+            var symptom3 = document.getElementById("symptom3").value;
+            var symptom4 = document.getElementById("symptom4").value;
+            var symptom5 = document.getElementById("symptom5").value;
+
+            // Check if all fields are filled
+            if (symptom1 === "" || symptom2 === "" || symptom3 === "" || symptom4 === "" || symptom5 === "") {
+                alert("Please fill in all symptom fields.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
